@@ -157,7 +157,7 @@ module SinatraAwsS3
         i = 0
         while(i < str.length * $chrsz)
           bin[i>>5] ||= 0
-          bin[i>>5] |= (str[i / $chrsz] & mask) << (32 - $chrsz - i%32)
+          bin[i>>5] |= (str[i / $chrsz].ord & mask) << (32 - $chrsz - i%32)
           i += $chrsz
         end
         return bin
