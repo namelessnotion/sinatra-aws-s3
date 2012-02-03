@@ -5,5 +5,4 @@ SinatraAwsS3.config do |c|
   c.token = 'for_testing_only'
 end
 
-
 run SinatraAwsS3::Server
