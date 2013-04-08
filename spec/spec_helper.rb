@@ -18,7 +18,7 @@ end
 require 'rspec'
 require 'rack/test'
 
-Rspec.configure do |config|
+RSpec.configure do |config|
   config.mock_with :rspec
   config.include Rack::Test::Methods
   def app
