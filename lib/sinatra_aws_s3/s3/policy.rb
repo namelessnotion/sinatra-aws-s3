@@ -9,7 +9,7 @@ module SinatraAwsS3
       def initialize(options = {})
         @bucket = options[:bucket]
         @key = options[:key]
-        @content_type = options[:content_type]
+        #@content_type = options[:content_type]
         @file_name = options[:file_name]
         @file_size = options[:file_size]
         @aws_access_key_id = SinatraAwsS3.config.aws_access_key_id
@@ -26,6 +26,7 @@ module SinatraAwsS3
       
       def set_policy
         set_expiration_date
+        #{'Content-Type': '#{content_type}'},
         @policy = Base64.encode64(
 "{
     'expiration': '#{self.expiration_date}',
@@ -33,8 +34,6 @@ module SinatraAwsS3
         {'bucket': '#{bucket}'},
         {'key': '#{key}'},
         {'acl': 'private'},
-        {'Content-Type': '#{content_type}'},
-        ['starts-with', '$Filename', ''],
         ['eq', '$success_action_status', '201']
     ]
 }").gsub(/\n|\r/, '')
@@ -47,7 +46,7 @@ module SinatraAwsS3
       def validate
         raise "bucket missing" if !@bucket
         raise "key missing" if !@key
-        raise "conent_type missing" if !@content_type
+        #raise "conent_type missing" if !@content_type
         raise "file_name" if !@file_name
         raise "file_size" if !@file_size
         raise "aws_access_key_id" if !@aws_access_key_id
