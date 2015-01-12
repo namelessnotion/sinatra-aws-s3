@@ -41,6 +41,7 @@ GEM
       rack
     rack-test (0.6.1)
       rack (>= 1.0)
+    rake (10.4.2)
     redis (2.2.2)
     redis-namespace (1.1.0)
       redis (< 3.0.0)
@@ -94,6 +95,7 @@ DEPENDENCIES
   cucumber-sinatra
   json_pure
   rack-test
+  rake
   redis
   redis-namespace
   rest-client

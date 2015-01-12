@@ -8,6 +8,7 @@ gem "redis-namespace"
 gem "aws-s3", :require => "aws/s3"
 gem "ruby-hmac"
 gem "json_pure"
+gem "rake"
 group :test do
   gem "rest-client", :require => "rest_client"
   gem "rack-test"

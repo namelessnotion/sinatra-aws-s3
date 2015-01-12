@@ -13,7 +13,7 @@ module SinatraAwsS3
       env['x-rack.flash'][:error] = options.auth_error_message if defined?(Rack::Flash)
       "access denied"
     end
-    
+
     get '/signed_policy.json' do
       authenticate
       content_type :json
@@ -21,6 +21,6 @@ module SinatraAwsS3
       policy.sign
       policy.to_json
     end
-    
+
   end
 end
