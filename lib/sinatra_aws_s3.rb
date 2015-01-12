@@ -22,5 +22,5 @@ require File.join(File.dirname(__FILE__),'sinatra_aws_s3', 'server')
 
 
 module SinatraAwsS3
-  
+
 end
