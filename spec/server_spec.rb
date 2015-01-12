@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'SinatraAwsS3::Server' do
   describe "GET signed_policy" do
     
-    let(:mock_policy) { mock("policy", :to_json => "policy in json", :sign => true) }
+    let(:mock_policy) { double("policy", :to_json => "policy in json", :sign => true) }
     before(:each) do
       SinatraAwsS3::S3::Policy.stub(:new).and_return(mock_policy)
     end
