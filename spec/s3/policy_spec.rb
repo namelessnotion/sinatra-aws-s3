@@ -9,11 +9,11 @@ describe "SinatraAwsS3::S3::Policy" do
         :content_type => 'application-x/zip',
         :file_name => 'file.zip',
         :file_size => '165024')
-      policy.bucket.should == 'my_bucket'
-      policy.key.should == 'my_files/file.zip'
-      policy.content_type == 'application-x/zip'
-      policy.file_name.should == 'file.zip'
-      policy.file_size.should == '165024'
+      expect(policy.bucket).to       eq('my_bucket')
+      expect(policy.key).to          eq('my_files/file.zip')
+      expect(policy.content_type).to eq('application-x/zip')
+      expect(policy.file_name).to    eq('file.zip')
+      expect(policy.file_size).to    eq('165024')
     end
   end
 
@@ -25,9 +25,10 @@ describe "SinatraAwsS3::S3::Policy" do
         :content_type => 'image/jpeg',
         :file_name => 'whitetail.jpg',
         :file_size => '165024')
-      policy.stub(:expiration_date).and_return("2015-01-25T23:19:57.000Z")
+      allow(policy).to receive(:expiration_date) {"2015-01-25T23:19:57.000Z"}
+      #policy.stub(:expiration_date).and_return("2015-01-25T23:19:57.000Z")
       policy.sign
-      policy.signature.should == "VpZbv7T3G2hgPpTIzBHKNQKIM5U="
+      expect(policy.signature).to eq("VpZbv7T3G2hgPpTIzBHKNQKIM5U=")
     end
   end
 end

@@ -9,7 +9,7 @@ module SinatraAwsS3
       def initialize(options = {})
         @bucket = options[:bucket]
         @key = options[:key]
-        #@content_type = options[:content_type]
+        @content_type = options[:content_type]
         @file_name = options[:file_name]
         @file_size = options[:file_size]
         @aws_access_key_id = SinatraAwsS3.config.aws_access_key_id
